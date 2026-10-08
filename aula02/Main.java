@@ -3,17 +3,16 @@ package condominio;
 public class Main {
 
 	public static void main(String[] args) {
-
-		Apartamento apto2 = new Apartamento(1, 5, null);
-		Apartamento apto3 = new Apartamento(2, 6, null);
-		Apartamento apto4 = new Apartamento(3, 7, null);
-		Apartamento apto5 = new Apartamento(4, 8, null);
-		ArrayList<Apartamento> apartamentos = new ArrayList<>();
+	ArrayList<Apartamento> apartamentos = new ArrayList<>();
+		Apartamento apto2 = new Apartamento(1, 5, new Lavanderia(1, 3 , new Energia("220W")));
+		Apartamento apto3 = new Apartamento(2, 6, new Lavanderia (2, 6 , new Energia("220W")));
+		Apartamento apto4 = new Apartamento(3, 7, new Lavanderia (3, 10 , new Energia("220W")));
+		Apartamento apto5 = new Apartamento(4, 8, new Lavanderia (4, 12 , new Energia("220W")));
 		apartamentos.add(apto2);
 		apartamentos.add(apto3);
 		apartamentos.add(apto4);
 		apartamentos.add(apto5);
-		 System.out.println(apartamentos.get(0).getNumeroApto());
+		 System.out.println(apartamentos.get(0));
 		 System.out.println(apartamentos.get(1));
 		 System.out.println(apartamentos.get(2));
 		 System.out.println(apartamentos.get(3));
