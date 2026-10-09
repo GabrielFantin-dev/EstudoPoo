@@ -14,39 +14,26 @@ public class Apartamento {
 	}
 	
 	
-	
-
 	public Lavanderia getLavanderia() {
 		return lavanderia;
 	}
 
 
-
-
 	public  void setLavanderia(Lavanderia novaLavanderia) {
 		lavanderia = novaLavanderia;
 	}
-
-	
 	public int getId() {
 		return id;
 	}
-
 	public void setId(int id) {
 		this.id = id;
 	}
-
 	public int getNumeroApto() {
 		return numeroApto;
 	}
-
 	public void setNumeroApto(int numeroApto) {
 		this.numeroApto = numeroApto;
 	}
-
-
-
-
 	@Override
 	public String toString() {
 		return "Apartamento [id=" + id + ", numeroApto=" + numeroApto + ", lavanderia=" + lavanderia + "]";

@@ -33,6 +33,13 @@ public class Main {
 		}
 
 
+
+
+
+
+
+		
+
 		/*
 		Lavanderia lavanderia = new Lavanderia(2, 120);
 		Apartamento apto = new Apartamento(1, 5);
