@@ -3,6 +3,9 @@ package condominio;
 public class Main {
 
 	public static void main(String[] args) {
+		int numeroProcurado = 5;
+		boolean encontrado = false;
+
 	ArrayList<Apartamento> apartamentos = new ArrayList<>();
 		Apartamento apto2 = new Apartamento(1, 5, new Lavanderia(1, 3 , new Energia("220W")));
 		Apartamento apto3 = new Apartamento(2, 6, new Lavanderia (2, 6 , new Energia("220W")));
@@ -17,6 +20,19 @@ public class Main {
 		 System.out.println(apartamentos.get(2));
 		 System.out.println(apartamentos.get(3));
 		
+		for (int i = 0; i < apartamentos.size(); i++) {
+			
+			if (numeroProcurado == apartamentos.get(i).getNumeroApto()) {
+				System.out.println(apartamentos.get(i));
+				encontrado = true;
+				break;
+			}
+		}
+		if(!encontrado) {
+			System.out.println("O apartamento não foi encontrado");
+		}
+
+
 		/*
 		Lavanderia lavanderia = new Lavanderia(2, 120);
 		Apartamento apto = new Apartamento(1, 5);
