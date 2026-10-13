@@ -7,10 +7,7 @@ public class Main {
 	public static void main(String[] args) {
 		boolean encontrado = false;
 		Scanner teclado = new Scanner(System.in);
-		
-		System.out.println("Qual apartamento deseja procurar?");
-		int numeroProcurado = teclado.nextInt();
-		
+		boolean rodando = true;
 		
 		
 		ArrayList <Apartamento> apartamentos = new ArrayList<>();
@@ -23,21 +20,28 @@ public class Main {
 		apartamentos.add(apto4);
 		apartamentos.add(apto5);
 		
-		for (int i = 0; i < apartamentos.size(); i++) {
+		while(rodando) {
 			
-			if (numeroProcurado == apartamentos.get(i).getNumeroApto()) {
-				System.out.println(apartamentos.get(i));
-				encontrado = true;
-				break;
+			System.out.println("Consulta de Apartamentos.");
+			System.out.println("=========================");
+			
+			System.out.println("Qual opção deseja continuar?");
+			System.out.println("1 - Apartamento individual?");
+			System.out.println("2 - Todos os Apartamentos?");
+			System.out.println("3 - Sair do App");
+			int açao = teclado.nextInt();
+		
+			if (açao == 1) {
+				System.out.println("Qual numero do apartamento?");
+				int apto = teclado.nextInt();
+				
 			}
-		}
-		if(!encontrado) {
-			System.out.println("O apartamento não foi encontrado");
-		}
 		
 		
+		teclado.close();
 	}
 
+}
 }
 
 
