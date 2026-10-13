@@ -1,12 +1,16 @@
 package condominio;
-
+import java.util.Scanner;
 import java.util.ArrayList;
 
 public class Main {
 	
 	public static void main(String[] args) {
-		int numeroProcurado = 5;
 		boolean encontrado = false;
+		Scanner teclado = new Scanner(System.in);
+		
+		System.out.println("Qual apartamento deseja procurar?");
+		int numeroProcurado = teclado.nextInt();
+		
 		
 		
 		ArrayList <Apartamento> apartamentos = new ArrayList<>();
