@@ -1,12 +1,15 @@
 package condominio;
 
-public class Main {
+import java.util.ArrayList;
 
+public class Main {
+	
 	public static void main(String[] args) {
 		int numeroProcurado = 5;
 		boolean encontrado = false;
-
-	ArrayList<Apartamento> apartamentos = new ArrayList<>();
+		
+		
+		ArrayList <Apartamento> apartamentos = new ArrayList<>();
 		Apartamento apto2 = new Apartamento(1, 5, new Lavanderia(1, 3 , new Energia("220W")));
 		Apartamento apto3 = new Apartamento(2, 6, new Lavanderia (2, 6 , new Energia("220W")));
 		Apartamento apto4 = new Apartamento(3, 7, new Lavanderia (3, 10 , new Energia("220W")));
@@ -15,10 +18,6 @@ public class Main {
 		apartamentos.add(apto3);
 		apartamentos.add(apto4);
 		apartamentos.add(apto5);
-		 System.out.println(apartamentos.get(0));
-		 System.out.println(apartamentos.get(1));
-		 System.out.println(apartamentos.get(2));
-		 System.out.println(apartamentos.get(3));
 		
 		for (int i = 0; i < apartamentos.size(); i++) {
 			
@@ -31,6 +30,11 @@ public class Main {
 		if(!encontrado) {
 			System.out.println("O apartamento não foi encontrado");
 		}
+		
+		
+	}
+
+}
 
 
 
