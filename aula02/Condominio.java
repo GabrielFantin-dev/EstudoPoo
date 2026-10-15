@@ -1,6 +1,6 @@
-package condominio;
+package aula02;
 
-public class Apartamento {
+class Apartamento {
 	private int id;
 	private  int numeroApto;
 	private  Lavanderia lavanderia;

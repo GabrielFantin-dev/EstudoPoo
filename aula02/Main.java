@@ -1,4 +1,4 @@
-package condominio;
+package aula02;
 
 import java.util.Scanner;
 import java.util.ArrayList;

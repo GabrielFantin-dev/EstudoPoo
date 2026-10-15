@@ -41,5 +41,3 @@ public class Produtos {
         System.out.println("Valor do estoque: " + calcularValorEstoque());
 	}
 }
-
-

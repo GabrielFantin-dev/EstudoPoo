@@ -1,4 +1,3 @@
-package conta;
 
 public class Main {
 	
@@ -6,7 +5,7 @@ public class Main {
 		ContaBancaria conta = new ContaBancaria();
 		
 		conta.settitular("Gabriel");
-		System.out.println(conta.gettitular("Gabriel"));
+		System.out.println(conta.gettitular());
 		conta.setsaldo();
 		System.out.print(conta.getsaldo());
 	}
