@@ -1,4 +1,3 @@
-
 package condominio;
 
 import java.util.Scanner;
@@ -83,7 +82,6 @@ public class Main {
 
 
 
-
 		
 
 		/*
@@ -111,6 +109,6 @@ public class Main {
 		//System.out.println(Utils.retornaHora());
 		//Apartamento apto = new Apartamento(1, 5, new Lavanderia(1, 3, new Energia("110")));
 		//System.out.println(apto);
-	}
+	//}
 
-}
+//}
