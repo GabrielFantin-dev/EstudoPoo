@@ -1,27 +1,63 @@
-package aula02;
+
+package condominio;
 
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
 
     public static void main(String[] args) {
-
+    	
         Scanner teclado = new Scanner(System.in);
         boolean rodando = true;
-
+        
+        Crianca crianca = new Crianca();
+        crianca.salvar();
+        System.out.println(crianca);
+        
+        
+        
+        Masculino masculino = new Masculino();
+        masculino.setId(3);
+        masculino.setAltura(1.75);
+        masculino.setIdade(17);
+        masculino.setNome("joao");
+        masculino.setGenero("Masculino");
+        masculino.setHash("567");
+        
+        Feminino feminino = new Feminino();
+        feminino.setId(4);
+        feminino.setAltura(1.75);
+        feminino.setIdade(18);
+        feminino.setNome("joana");
+        feminino.setGenero("feminino");
+        
+        PostGree sindico = new PostGree();
+        sindico.setId(5);
+        sindico.setGenero("Masculino");
+        System.out.println(sindico);
+        
+        MySql minino = new MySql();
+        minino.salvar(masculino);
+        System.out.println(minino);
+        
+        minino.salvar(new Apartamento(1, 5, new Lavanderia(1, 3, new Energia("220W")),List.of(masculino, feminino)));
+        
+        System.out.println(masculino.toString() + feminino.toString());
+        
         ArrayList<Apartamento> apartamentos = new ArrayList<>();
 
-        Apartamento apto2 = new Apartamento(1, 5, new Lavanderia(1, 3, new Energia("220W")));
-        Apartamento apto3 = new Apartamento(2, 6, new Lavanderia(2, 6, new Energia("220W")));
-        Apartamento apto4 = new Apartamento(3, 7, new Lavanderia(3, 10, new Energia("220W")));
-        Apartamento apto5 = new Apartamento(4, 8, new Lavanderia(4, 12, new Energia("220W")));
+        Apartamento apto2 = new Apartamento(1, 5, new Lavanderia(1, 3, new Energia("220W")),List.of(masculino, feminino));
+        Apartamento apto3 = new Apartamento(2, 6, new Lavanderia(2, 6, new Energia("220W")),List.of(masculino, feminino));
+        Apartamento apto4 = new Apartamento(3, 7, new Lavanderia(3, 10, new Energia("220W")),List.of(masculino, feminino));
+        Apartamento apto5 = new Apartamento(4, 8, new Lavanderia(4, 12, new Energia("220W")),List.of(masculino, feminino));
 
         apartamentos.add(apto2);
         apartamentos.add(apto3);
         apartamentos.add(apto4);
         apartamentos.add(apto5);
-
+        
         while (rodando) {
 
             System.out.println("Consulta de Apartamentos");
@@ -78,37 +114,22 @@ public class Main {
 }
 
 
+/*
+Lavanderia lavanderia = new Lavanderia(2, 120);
+Apartamento apto = new Apartamento(1, 5);
+apto.setLavanderia(lavanderia);
+Apartamento apto2 = new Apartamento(2, 6);
+apto2.setLavanderia(lavanderia);
 
+System.out.println(apto);
+System.out.println(apto2);
 
+*/
 
+//Apartamento apto = new Apartamento(1, 5);
+//Apartamento apto2 = new Apartamento(2, 6);
 
-		
-
-		/*
-		Lavanderia lavanderia = new Lavanderia(2, 120);
-		Apartamento apto = new Apartamento(1, 5);
-		apto.setLavanderia(lavanderia);
-		Apartamento apto2 = new Apartamento(2, 6);
-		apto2.setLavanderia(lavanderia);
-		
-	
-		System.out.println(apto);
-		System.out.println(apto2);
-		
-		
-		
-		
-		*/
-		
-		
-		//Apartamento apto = new Apartamento(1, 5);
-		//Apartamento apto2 = new Apartamento(2, 6);
-	
-		//int verificado = Apartamento.verificarApto();
-		
-		//System.out.println(Utils.retornaHora());
+//int verificado = Apartamento.verificarApto();
+//System.out.println(Utils.retornaHora());
 		//Apartamento apto = new Apartamento(1, 5, new Lavanderia(1, 3, new Energia("110")));
 		//System.out.println(apto);
-	//}
-
-//}
