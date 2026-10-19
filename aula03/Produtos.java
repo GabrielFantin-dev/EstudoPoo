@@ -1,10 +1,11 @@
-package aula03;
+package produtosAula05;
 
 public class Produtos {
-    //Atributos
+	//Atributos
 	private String nome;
 	private double preco;
 	private int quantidade;
+
 	
 	//Métodos
 	
