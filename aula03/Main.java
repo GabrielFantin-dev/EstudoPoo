@@ -5,12 +5,13 @@ import java.util.Scanner;
 
 public class Main {
 	public static void main(String[] args) {
-		Scanner teclado = new Scanner(System.in);
+		
 		ArrayList <Produtos> listaProdutos = new ArrayList<>();
-		boolean rodando = true;
 		ArrayList<CadastroCliente> clientes = new ArrayList<>();
-            	
+		boolean rodando = true;
 		int opcao = 0;
+		Scanner teclado = new Scanner(System.in);
+		
 		while (rodando) {
 			 System.out.println("=== SISTEMA DE CLIENTES ===");
 	            System.out.println("1 - Cadastrar");
@@ -43,11 +44,8 @@ public class Main {
 	                        System.out.print("Crie sua senha: ");
 	                        String novaSenha = teclado.nextLine();
 
-	                        CadastroCliente novoCliente =
-	                            new CadastroCliente(novoId, novaSenha);
-
+	                        CadastroCliente novoCliente =new CadastroCliente(novoId, novaSenha);
 	                        clientes.add(novoCliente);
-
 	                        System.out.println("Cadastro realizado!");
 	                    }
 	                    break;
@@ -94,11 +92,8 @@ public class Main {
 
 	        
 
-	        teclado.close();
-	    
-	
 
-			System.out.println("===== MENU DA LOJA =====");
+			System.out.println("\n===== MENU DA LOJA =====");
 			System.out.println("1. Cadastrar Produto");
 			System.out.println("2. Listar Produtos");
 			System.out.println("3. Valor total do estoque");
