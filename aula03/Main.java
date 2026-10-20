@@ -8,18 +8,106 @@ public class Main {
 		Scanner teclado = new Scanner(System.in);
 		ArrayList <Produtos> listaProdutos = new ArrayList<>();
 		boolean rodando = true;
-
+		ArrayList<CadastroCliente> clientes = new ArrayList<>();
+            	
+		int opcao = 0;
 		while (rodando) {
-			System.out.println("\n===== MENU DA LOJA =====");
+			 System.out.println("=== SISTEMA DE CLIENTES ===");
+	            System.out.println("1 - Cadastrar");
+	            System.out.println("2 - Fazer login");
+	            System.out.println("3 - Sair");
+	            System.out.print("Escolha: ");
+
+	            opcao = teclado.nextInt();
+	            teclado.nextLine();
+
+	            switch (opcao) {
+
+	                case 1:
+	                    System.out.print("Crie seu ID: ");
+	                    String novoId = teclado.nextLine();
+
+	                  
+	                    boolean existe = false;
+
+	                    for (CadastroCliente cliente : clientes) {
+	                        if (cliente.getId().equals(novoId)) {
+	                            existe = true;
+	                            break;
+	                        }
+	                    }
+
+	                    if (existe) {
+	                        System.out.println("Esse ID já está cadastrado!");
+	                    } else {
+	                        System.out.print("Crie sua senha: ");
+	                        String novaSenha = teclado.nextLine();
+
+	                        CadastroCliente novoCliente =
+	                            new CadastroCliente(novoId, novaSenha);
+
+	                        clientes.add(novoCliente);
+
+	                        System.out.println("Cadastro realizado!");
+	                    }
+	                    break;
+
+	                case 2:
+	                    if (clientes.isEmpty()) {
+	                        System.out.println("Nenhum cliente cadastrado.");
+	                        break;
+	                    }
+
+	                    System.out.print("Digite seu ID: ");
+	                    String idLogin = teclado.nextLine();
+
+	                    System.out.print("Digite sua senha: ");
+	                    String senhaLogin = teclado.nextLine();
+
+	                    boolean logado = false;
+
+	                    
+	                    for (CadastroCliente cliente : clientes) {
+
+	                        if (cliente.getId().equals(idLogin)
+	                                && cliente.getSenha().equals(senhaLogin)) {
+
+	                            logado = true;
+	                            break;
+	                        }
+	                    }
+
+	                    if (logado) {
+	                        System.out.println("Login realizado com sucesso!");
+	                    } else {
+	                        System.out.println("ID ou senha incorretos!");
+	                    }
+	                    break;
+
+	                case 3:
+	                    System.out.println("Sistema encerrado.");
+	                    break;
+
+	                default:
+	                    System.out.println("Opção inválida!");
+	            }
+
+	        
+
+	        teclado.close();
+	    
+	
+
+			System.out.println("===== MENU DA LOJA =====");
 			System.out.println("1. Cadastrar Produto");
 			System.out.println("2. Listar Produtos");
 			System.out.println("3. Valor total do estoque");
 			System.out.println("0. Sair");
 			System.out.print("Escolha uma opção: ");
-			int opcao = teclado.nextInt();
+			int opcao1 = teclado.nextInt();
 			teclado.nextLine(); 
 
-			if (opcao == 1) {
+			if (opcao1 == 1) {
 				System.out.print("Nome do produto: ");
 				String nome = teclado.nextLine();
 
@@ -35,25 +123,25 @@ public class Main {
 
 				System.out.println("Produto cadastrado com sucesso!");
 
-			} else if (opcao == 2) {
+			} else if (opcao1 == 2) {
 				if (listaProdutos.isEmpty()) {
 					System.out.println("Nenhum produto cadastrado.");
 				} else {
-					System.out.println("\nLista de Produtos:");
+					System.out.println("Lista de Produtos:");
 					for (Produtos p : listaProdutos) {
 						p.exibirInformacoes();
 						System.out.println("-------------------");
 					}
 				}
 
-			} else if (opcao == 3) {
+			} else if (opcao1 == 3) {
 				double valorTotal = 0;
 				for (Produtos p : listaProdutos) {
 					valorTotal += p.calcularValorEstoque();
 				}
 				System.out.println("Valor total do estoque: R$" + valorTotal);
 
-			} else if (opcao == 0) {
+			} else if (opcao1 == 0) {
 				rodando = false;
 				System.out.println("Saindo do programa...");
 
@@ -61,7 +149,5 @@ public class Main {
 				System.out.println("Opção inválida. Tente novamente.");
 			}
 		}
-
-		teclado.close();
 	}
 }
