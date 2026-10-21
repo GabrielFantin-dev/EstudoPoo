@@ -4,6 +4,71 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
+	
+	public static void cadastrarCliente(Scanner teclado, ArrayList<CadastroCliente> clientes) {
+		//Scanner teclado = new Scanner(System.in);
+		System.out.print("=== Cadastro de cliente ===  \n");
+        System.out.print("Crie seu ID: ");
+        String novoId = teclado.nextLine();
+        
+
+      
+        boolean existe = false;
+
+        for (CadastroCliente cliente : clientes) {
+            if (cliente.getId().equals(novoId)) {
+                existe = true;
+                break;
+            }
+        }
+
+        if (existe) {
+            System.out.println("Esse ID já está cadastrado!");
+        } else {
+        	System.out.print("=== Cadastro de cliente === \n");
+            System.out.print("Crie sua senha: ");
+            String novaSenha = teclado.nextLine();
+
+            CadastroCliente novoCliente =new CadastroCliente(novoId, novaSenha);
+            clientes.add(novoCliente);
+            System.out.println("Cadastro realizado!");
+        }
+	}
+	public static void loginCliente(Scanner teclado, ArrayList<CadastroCliente> clientes) {
+		if (clientes.isEmpty()) {
+            System.out.println("Nenhum cliente cadastrado.");
+           
+        }
+        System.out.print("=== Login === \n");
+        System.out.print("Digite seu ID: ");
+        String idLogin = teclado.nextLine();
+
+        System.out.print("Digite sua senha: ");
+        String senhaLogin = teclado.nextLine();
+
+        boolean logado = false;
+
+        
+        for (CadastroCliente cliente : clientes) {
+
+            if (cliente.getId().equals(idLogin)
+                    && cliente.getSenha().equals(senhaLogin)) {
+
+                logado = true;
+                break;
+            }
+        }
+
+        if (logado) {
+            System.out.println("Login realizado com sucesso!");
+            //chamar o proximo menu
+        } else {
+            System.out.println("ID ou senha incorretos!");
+            
+        }
+	}
+	
+	
 	public static void main(String[] args) {
 		
 		ArrayList <Produtos> listaProdutos = new ArrayList<>();
@@ -13,7 +78,7 @@ public class Main {
 		Scanner teclado = new Scanner(System.in);
 		
 		while (rodando) {
-			 System.out.println("=== SISTEMA DE CLIENTES ===");
+			 	System.out.println("=== SISTEMA DE CLIENTES ===");
 	            System.out.println("1 - Cadastrar");
 	            System.out.println("2 - Fazer login");
 	            System.out.println("3 - Sair");
@@ -25,61 +90,11 @@ public class Main {
 	            switch (opcao) {
 
 	                case 1:
-	                    System.out.print("Crie seu ID: ");
-	                    String novoId = teclado.nextLine();
-
-	                  
-	                    boolean existe = false;
-
-	                    for (CadastroCliente cliente : clientes) {
-	                        if (cliente.getId().equals(novoId)) {
-	                            existe = true;
-	                            break;
-	                        }
-	                    }
-
-	                    if (existe) {
-	                        System.out.println("Esse ID já está cadastrado!");
-	                    } else {
-	                        System.out.print("Crie sua senha: ");
-	                        String novaSenha = teclado.nextLine();
-
-	                        CadastroCliente novoCliente =new CadastroCliente(novoId, novaSenha);
-	                        clientes.add(novoCliente);
-	                        System.out.println("Cadastro realizado!");
-	                    }
+	                	cadastrarCliente(teclado, clientes);
 	                    break;
 
 	                case 2:
-	                    if (clientes.isEmpty()) {
-	                        System.out.println("Nenhum cliente cadastrado.");
-	                        break;
-	                    }
-
-	                    System.out.print("Digite seu ID: ");
-	                    String idLogin = teclado.nextLine();
-
-	                    System.out.print("Digite sua senha: ");
-	                    String senhaLogin = teclado.nextLine();
-
-	                    boolean logado = false;
-
-	                    
-	                    for (CadastroCliente cliente : clientes) {
-
-	                        if (cliente.getId().equals(idLogin)
-	                                && cliente.getSenha().equals(senhaLogin)) {
-
-	                            logado = true;
-	                            break;
-	                        }
-	                    }
-
-	                    if (logado) {
-	                        System.out.println("Login realizado com sucesso!");
-	                    } else {
-	                        System.out.println("ID ou senha incorretos!");
-	                    }
+	                	loginCliente(teclado, clientes);
 	                    break;
 
 	                case 3:
@@ -92,7 +107,7 @@ public class Main {
 
 	        
 
-
+	           /*
 			System.out.println("\n===== MENU DA LOJA =====");
 			System.out.println("1. Cadastrar Produto");
 			System.out.println("2. Listar Produtos");
@@ -143,6 +158,14 @@ public class Main {
 			} else {
 				System.out.println("Opção inválida. Tente novamente.");
 			}
+			*/
 		}
 	}
 }
+
+		
+	
+	
+	
+
+
