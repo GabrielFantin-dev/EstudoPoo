@@ -10,9 +10,7 @@ public class Main {
 		System.out.print("=== Cadastro de cliente ===  \n");
         System.out.print("Crie seu ID: ");
         String novoId = teclado.nextLine();
-        
-
-      
+ 
         boolean existe = false;
 
         for (CadastroCliente cliente : clientes) {
